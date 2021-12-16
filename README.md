@@ -1,43 +1,53 @@
 Aareon Technical Test - Ticketing System
+========================================
 
 We need you to extend the current ticketing system that will allow additional resources to be included.
 
 1. Implement endpoint(s) that will allow all CRUD actions on a Ticket.
+
 Implemented as /Tickets with a DI service class to perform the business logic and database access
 
 2. Now amend the solution to allow the addition of Notes to a Ticket.
+
 Amended by adding a Notes property to the Ticket Model for speed of implementation. In a real-life 
 system I would consider adding a Notes model backed by a Notes table in the database and then have
 the possibility of keeping a history deleted/amended notes or multiple notes per Ticket etc.
 
 3. Amend the solution to track any data manipulation, actions need to be tracked.
+
 Here I have chosen to add logging support (Ilogger) for this, I have just added one call to 
 LogInformation() to demonstrate. There are other ways to achieve tracking, auditing and 
 monitoring/alerting. Filters can be considered for logging on the WebAPI controllers, 
 Triggers can be considered in the database.
 
 4. Create a Pull Request on github.
+
 I cannot do this becase the test was supplied as a .ZIP file from a DropBox account
 
 Requirements:
 - A note is created by a Person to log additional information against a ticket.
+
 This is supported by POST -> /Tickets
 
 - A note can be created, updated, or removed by anyone, but only an Administrator may delete an existing note.
+
 Separate routes for POST/PUT/DELETE to /Tickets/{id}/Person{personId}/Notes have been added to the Tickets Controller
+
 Similar routes could have been added to the /Person endpoint
+
 A new endpoint for /Notes could have been created
 
 - Any actions that are taken against records in the ticketing system are subject to monitoring and auditing.
 See my comments about ILogger. 
 
 - This application will be deployed automatically using a CI/CD pipeline.
-Yes and usually with unit tests, code quality and coverage tests
+
+Yes, file added to .gitignore. Would usually add unit tests, code quality and coverage tests
 
 These tasks should take no longer than 4 hours
 
 Here are my thoughts:
-=====================
+---------------------
 
 Obviously there are other ways to accomplish solutions but with just a 4 hour target I didn't want to get 
 stuck coding a complex and custom solution and then not be able to provide something that works.
