@@ -6,9 +6,8 @@ namespace AareonTechnicalTest.Models
     {
         [Key]
         public int Id { get; }
-
         public string Content { get; set; }
-
         public int PersonId { get; set; }
+        public string Note { get; set; }
     }
 }
